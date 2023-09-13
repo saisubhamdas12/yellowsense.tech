@@ -1,0 +1,51 @@
+{% extends 'dummy2.html' %}
+{% block title %}
+<title>login</title>
+{% endblock %}
+
+
+{% block body_block %}
+
+<br>
+<center style="top: 30px;">
+    <h1 style="color: black;">Cook details</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">TIME</th>
+            <th scope="col">NAME</th>
+            <th scope="col">AGE</th>
+            <th scope="col">PHONE_NUMBER</th>
+            <th scope="col">RATING</th>
+            <th scope="col">USER_TIME</th>
+            <th scope="col">USER_DATE</th>
+            <th scope="col">USER_PHONE_NUMBER</th>
+            <th scope="col">USER_RATING</th>
+
+            <th scope="col">BOOKING</th>
+          
+          </tr>
+            {% for i in data2 %}
+            <tr style="height: 100px;">
+                <form method='POST' action="{% url 'booking' %}"nctype="multipart/form-data">
+                  {% csrf_token %}
+                
+                <td>{{ i.time }}</td>
+                <td><input type="radio" value="{{i.name}}" name="maid"><br>{{ i.name }}</td>
+                <td>{{ i.age }}</td>
+                <td>{{ i.phone_number}}</td>
+                <td>{{ i.rating}}</td>
+                <td><input type="time" name="time" id="time">date</td>
+                <td><input type="date" name="date" id="date"></td>
+                <td><input type="text" name="mobile" id="mobile">Mobile</td>
+                <td><input type="int" name="rating" id="rating"></td>
+                <td><input type="submit" value="book emp"class="btn btn-success"></td>
+            </form>
+            </tr>
+            {% endfor %}
+        </Thead>
+      </table>
+</center>
+</div>
+
+{% endblock %}

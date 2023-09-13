@@ -1,0 +1,50 @@
+{% extends 'dummy2.html' %}
+{% block title %}
+<title>login</title>
+{% endblock %}
+
+
+{% block body_block %}
+<br>
+    <div class="input-group" style="margin-left: 500px;">
+        <div class="form-outline">
+        <input type="search" id="form1" class="form-control" />
+        <label class="form-label" for="form1"></label>
+        </div>
+        <button type="button" class="btn btn-primary" style="height:40px;">
+        <i class="fas fa-search">seach</i>
+        </button>
+    </div>
+
+<br>
+<center style="top: 30px;">
+    <h1 style="color: black;">your details</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">TIME</th>
+            <th scope="col">NAME</th>
+            <th scope="col">DATE</th>
+            <th scope="col">PHONE_NUMBER</th>
+            <th scope="col">BOOKING</th>
+          </tr>
+          
+            {% for i in data2 %}
+            <tr>
+                <form method='POST' action="{% url 'booking' %}">
+                <td>{{ i.time }}</td>
+                <td><input type="radio" value="{{i.name}}" name="maid">{{ i.name }}</td>
+                <td>{{ i.age }}</td>
+                <td>{{ i.phone_number}}</td>
+                <td><input type="time" name="time" id="time">date</td>
+                <td><input type="date" name="date" id="date"></td>
+                <td><input type="text" name="mobile" id="mobile">Mobile</td>
+                <td><input type="submit" value="Book"></td>
+            </form>
+            </tr>
+            {% endfor %}
+        </Thead>
+      </table>
+</center>
+</div>
+{% endblock %}

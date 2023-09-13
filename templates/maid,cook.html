@@ -1,0 +1,21 @@
+{% extends 'dummy1.html' %}
+{% block title %}
+<title>registration</title>
+{% endblock %}
+
+{% block body_block %}
+<br>
+    <center>
+        <fieldset>
+        <form method="POST" >
+            {% csrf_token %}
+            {{mdr.as_p}}
+            <br>
+        <input type="submit" >
+            
+        </form>
+    </fieldset>
+    </center>
+
+{% endblock %}
+</html>
